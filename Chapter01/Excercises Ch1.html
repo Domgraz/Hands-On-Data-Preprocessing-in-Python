@@ -15715,6 +15715,18 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>What I decided to do was to iterate through each of the columns and identify how many distinct data points there were. using nunuque to get that answer</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15724,7 +15736,8 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df_clean</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df_clean</span><span class="p">[</span><span class="n">column</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df_clean</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+    
 </pre></div>
 
      </div>
@@ -15746,66 +15759,11 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0          Destiny&#39;s Child
-1                  Santana
-2            Savage Garden
-3                  Madonna
-4      Aguilera, Christina
-              ...         
-312       Ghostface Killah
-313            Smith, Will
-314          Zombie Nation
-315         Eastsidaz, The
-316                 Fragma
-Name: artist, Length: 317, dtype: object
-0                   Independent Women Part I
-1                               Maria, Maria
-2                         I Knew I Loved You
-3                                      Music
-4      Come On Over Baby (All I Want Is You)
-                       ...                  
-312                         Cherchez LaGhost
-313                              Freakin&#39; It
-314                            Kernkraft 400
-315                                 Got Beef
-316                           Toca&#39;s Miracle
-Name: track, Length: 317, dtype: object
-0      3:38
-1      4:18
-2      4:07
-3      3:45
-4      3:38
-       ... 
-312    3:04
-313    3:58
-314    3:30
-315    3:58
-316    3:22
-Name: time, Length: 317, dtype: object
-0      2000-09-23
-1      2000-02-12
-2      1999-10-23
-3      2000-08-12
-4      2000-08-05
-          ...    
-312    2000-08-05
-313    2000-02-12
-314    2000-09-02
-315    2000-07-01
-316    2000-10-28
-Name: date_e, Length: 317, dtype: object
-0      78
-1      15
-2      71
-3      41
-4      57
-       ..
-312    98
-313    99
-314    99
-315    99
-316    99
-Name: w1, Length: 317, dtype: int64
+<pre>228
+316
+126
+68
+63
 </pre>
 </div>
 </div>
@@ -15962,6 +15920,18 @@ Name: w1, Length: 317, dtype: int64
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>What I did was to use the loc to locate the rows for every 1200, starting at 0 and going through 100000 just to be safe</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15970,7 +15940,7 @@ Name: w1, Length: 317, dtype: int64
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mlt_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1220</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mlt_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100000</span><span class="p">:</span><span class="mi">1220</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -15992,9 +15962,9 @@ Name: w1, Length: 317, dtype: int64
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>variable        date_e
-value       2000-01-08
-Name: 1220, dtype: object
+<pre>     variable            value
+0      artist  Destiny&#39;s Child
+1220   date_e       2000-01-08
 </pre>
 </div>
 </div>
@@ -16016,7 +15986,19 @@ Name: 1220, dtype: object
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Idk if this is because I did a mlt or the loc wrong so i am going to try the Destiny's Child to see if it works</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -16030,179 +16012,6 @@ Name: 1220, dtype: object
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/scope.py:195</span>, in <span class="ansi-cyan-fg">Scope.resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
-<span class="ansi-green-intense-fg ansi-bold">    194</span> if self.has_resolvers:
-<span class="ansi-green-fg">--&gt; 195</span>     return self.resolvers[key]
-<span class="ansi-green-intense-fg ansi-bold">    197</span> # if we&#39;re here that means that we have no locals and we also have
-<span class="ansi-green-intense-fg ansi-bold">    198</span> # no resolvers
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/collections/__init__.py:941</span>, in <span class="ansi-cyan-fg">ChainMap.__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">    940</span>         pass
-<span class="ansi-green-fg">--&gt; 941</span> return self.__missing__(key)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/collections/__init__.py:933</span>, in <span class="ansi-cyan-fg">ChainMap.__missing__</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">    932</span> def __missing__(self, key):
-<span class="ansi-green-fg">--&gt; 933</span>     raise KeyError(key)
-
-<span class="ansi-red-fg">KeyError</span>: &#39;artist&#39;
-
-During handling of the above exception, another exception occurred:
-
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/scope.py:206</span>, in <span class="ansi-cyan-fg">Scope.resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
-<span class="ansi-green-intense-fg ansi-bold">    202</span> try:
-<span class="ansi-green-intense-fg ansi-bold">    203</span>     # last ditch effort we look in temporaries
-<span class="ansi-green-intense-fg ansi-bold">    204</span>     # these are created when parsing indexing expressions
-<span class="ansi-green-intense-fg ansi-bold">    205</span>     # e.g., df[df &gt; 0]
-<span class="ansi-green-fg">--&gt; 206</span>     return self.temps[key]
-<span class="ansi-green-intense-fg ansi-bold">    207</span> except KeyError as err:
-<span class="ansi-green-intense-fg ansi-bold">    208</span>     # runtime import because ops imports from scope
-
-<span class="ansi-red-fg">KeyError</span>: &#39;artist&#39;
-
-The above exception was the direct cause of the following exception:
-
-<span class="ansi-red-fg">UndefinedVariableError</span>                    Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">/Users/dominicgraziano/Documents/GitHub/Hands-On-Data-Preprocessing-in-Python/Chapter01/Excercises Ch1.ipynb Cell 37</span> in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; &lt;a href=&#39;vscode-notebook-cell:/Users/dominicgraziano/Documents/GitHub/Hands-On-Data-Preprocessing-in-Python/Chapter01/Excercises%20Ch1.ipynb#X51sZmlsZQ%3D%3D?line=0&#39;&gt;1&lt;/a&gt;</span> mlt_df.query(&#39;artist == &#34;Spears, Britney&#34;&#39;)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/frame.py:4111</span>, in <span class="ansi-cyan-fg">DataFrame.query</span><span class="ansi-blue-fg">(self, expr, inplace, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   4109</span> kwargs[&#34;level&#34;] = kwargs.pop(&#34;level&#34;, 0) + 1
-<span class="ansi-green-intense-fg ansi-bold">   4110</span> kwargs[&#34;target&#34;] = None
-<span class="ansi-green-fg">-&gt; 4111</span> res = self.eval(expr, **kwargs)
-<span class="ansi-green-intense-fg ansi-bold">   4113</span> try:
-<span class="ansi-green-intense-fg ansi-bold">   4114</span>     result = self.loc[res]
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/frame.py:4240</span>, in <span class="ansi-cyan-fg">DataFrame.eval</span><span class="ansi-blue-fg">(self, expr, inplace, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   4237</span>     kwargs[&#34;target&#34;] = self
-<span class="ansi-green-intense-fg ansi-bold">   4238</span> kwargs[&#34;resolvers&#34;] = tuple(kwargs.get(&#34;resolvers&#34;, ())) + resolvers
-<span class="ansi-green-fg">-&gt; 4240</span> return _eval(expr, inplace=inplace, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/eval.py:350</span>, in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(expr, parser, engine, truediv, local_dict, global_dict, resolvers, level, target, inplace)</span>
-<span class="ansi-green-intense-fg ansi-bold">    341</span> # get our (possibly passed-in) scope
-<span class="ansi-green-intense-fg ansi-bold">    342</span> env = ensure_scope(
-<span class="ansi-green-intense-fg ansi-bold">    343</span>     level + 1,
-<span class="ansi-green-intense-fg ansi-bold">    344</span>     global_dict=global_dict,
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">    347</span>     target=target,
-<span class="ansi-green-intense-fg ansi-bold">    348</span> )
-<span class="ansi-green-fg">--&gt; 350</span> parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
-<span class="ansi-green-intense-fg ansi-bold">    352</span> # construct the engine and evaluate the parsed expression
-<span class="ansi-green-intense-fg ansi-bold">    353</span> eng = ENGINES[engine]
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:811</span>, in <span class="ansi-cyan-fg">Expr.__init__</span><span class="ansi-blue-fg">(self, expr, engine, parser, env, level)</span>
-<span class="ansi-green-intense-fg ansi-bold">    809</span> self.parser = parser
-<span class="ansi-green-intense-fg ansi-bold">    810</span> self._visitor = PARSERS[parser](self.env, self.engine, self.parser)
-<span class="ansi-green-fg">--&gt; 811</span> self.terms = self.parse()
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:830</span>, in <span class="ansi-cyan-fg">Expr.parse</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    826</span> def parse(self):
-<span class="ansi-green-intense-fg ansi-bold">    827</span>     &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    828</span>     Parse an expression.
-<span class="ansi-green-intense-fg ansi-bold">    829</span>     &#34;&#34;&#34;
-<span class="ansi-green-fg">--&gt; 830</span>     return self._visitor.visit(self.expr)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:415</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    413</span> method = &#34;visit_&#34; + type(node).__name__
-<span class="ansi-green-intense-fg ansi-bold">    414</span> visitor = getattr(self, method)
-<span class="ansi-green-fg">--&gt; 415</span> return visitor(node, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:421</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit_Module</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    419</span>     raise SyntaxError(&#34;only a single expression is allowed&#34;)
-<span class="ansi-green-intense-fg ansi-bold">    420</span> expr = node.body[0]
-<span class="ansi-green-fg">--&gt; 421</span> return self.visit(expr, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:415</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    413</span> method = &#34;visit_&#34; + type(node).__name__
-<span class="ansi-green-intense-fg ansi-bold">    414</span> visitor = getattr(self, method)
-<span class="ansi-green-fg">--&gt; 415</span> return visitor(node, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:424</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit_Expr</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    423</span> def visit_Expr(self, node, **kwargs):
-<span class="ansi-green-fg">--&gt; 424</span>     return self.visit(node.value, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:415</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    413</span> method = &#34;visit_&#34; + type(node).__name__
-<span class="ansi-green-intense-fg ansi-bold">    414</span> visitor = getattr(self, method)
-<span class="ansi-green-fg">--&gt; 415</span> return visitor(node, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:723</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit_Compare</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    721</span>     op = self.translate_In(ops[0])
-<span class="ansi-green-intense-fg ansi-bold">    722</span>     binop = ast.BinOp(op=op, left=node.left, right=comps[0])
-<span class="ansi-green-fg">--&gt; 723</span>     return self.visit(binop)
-<span class="ansi-green-intense-fg ansi-bold">    725</span> # recursive case: we have a chained comparison, a CMP b CMP c, etc.
-<span class="ansi-green-intense-fg ansi-bold">    726</span> left = node.left
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:415</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    413</span> method = &#34;visit_&#34; + type(node).__name__
-<span class="ansi-green-intense-fg ansi-bold">    414</span> visitor = getattr(self, method)
-<span class="ansi-green-fg">--&gt; 415</span> return visitor(node, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:536</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit_BinOp</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    535</span> def visit_BinOp(self, node, **kwargs):
-<span class="ansi-green-fg">--&gt; 536</span>     op, op_class, left, right = self._maybe_transform_eq_ne(node)
-<span class="ansi-green-intense-fg ansi-bold">    537</span>     left, right = self._maybe_downcast_constants(left, right)
-<span class="ansi-green-intense-fg ansi-bold">    538</span>     return self._maybe_evaluate_binop(op, op_class, left, right)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:456</span>, in <span class="ansi-cyan-fg">BaseExprVisitor._maybe_transform_eq_ne</span><span class="ansi-blue-fg">(self, node, left, right)</span>
-<span class="ansi-green-intense-fg ansi-bold">    454</span> def _maybe_transform_eq_ne(self, node, left=None, right=None):
-<span class="ansi-green-intense-fg ansi-bold">    455</span>     if left is None:
-<span class="ansi-green-fg">--&gt; 456</span>         left = self.visit(node.left, side=&#34;left&#34;)
-<span class="ansi-green-intense-fg ansi-bold">    457</span>     if right is None:
-<span class="ansi-green-intense-fg ansi-bold">    458</span>         right = self.visit(node.right, side=&#34;right&#34;)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:415</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    413</span> method = &#34;visit_&#34; + type(node).__name__
-<span class="ansi-green-intense-fg ansi-bold">    414</span> visitor = getattr(self, method)
-<span class="ansi-green-fg">--&gt; 415</span> return visitor(node, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/expr.py:549</span>, in <span class="ansi-cyan-fg">BaseExprVisitor.visit_Name</span><span class="ansi-blue-fg">(self, node, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    548</span> def visit_Name(self, node, **kwargs):
-<span class="ansi-green-fg">--&gt; 549</span>     return self.term_type(node.id, self.env, **kwargs)
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/ops.py:98</span>, in <span class="ansi-cyan-fg">Term.__init__</span><span class="ansi-blue-fg">(self, name, env, side, encoding)</span>
-<span class="ansi-green-intense-fg ansi-bold">     96</span> tname = str(name)
-<span class="ansi-green-intense-fg ansi-bold">     97</span> self.is_local = tname.startswith(LOCAL_TAG) or tname in DEFAULT_GLOBALS
-<span class="ansi-green-fg">---&gt; 98</span> self._value = self._resolve_name()
-<span class="ansi-green-intense-fg ansi-bold">     99</span> self.encoding = encoding
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/ops.py:115</span>, in <span class="ansi-cyan-fg">Term._resolve_name</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    114</span> def _resolve_name(self):
-<span class="ansi-green-fg">--&gt; 115</span>     res = self.env.resolve(self.local_name, is_local=self.is_local)
-<span class="ansi-green-intense-fg ansi-bold">    116</span>     self.update(res)
-<span class="ansi-green-intense-fg ansi-bold">    118</span>     if hasattr(res, &#34;ndim&#34;) and res.ndim &gt; 2:
-
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pandas/core/computation/scope.py:211</span>, in <span class="ansi-cyan-fg">Scope.resolve</span><span class="ansi-blue-fg">(self, key, is_local)</span>
-<span class="ansi-green-intense-fg ansi-bold">    207</span> except KeyError as err:
-<span class="ansi-green-intense-fg ansi-bold">    208</span>     # runtime import because ops imports from scope
-<span class="ansi-green-intense-fg ansi-bold">    209</span>     from pandas.core.computation.ops import UndefinedVariableError
-<span class="ansi-green-fg">--&gt; 211</span>     raise UndefinedVariableError(key, is_local) from err
-
-<span class="ansi-red-fg">UndefinedVariableError</span>: name &#39;artist&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16224,27 +16033,11 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Answer:</p>
+<p>Answer: I don't think you could have utilized boolean masking to get the answer needed</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#I think you could have utilized boolean masking to get the answer needed</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16254,6 +16047,18 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 <pre><code>f)   Use either the approach in e or the Boolean mask, to extract all the unique songs that Britney Spears has in this dataset.</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>I couldn't get it to work with the mlt data but it seemed to work fine with the cleaned df from before</p>
 
 </div>
 </div>
@@ -16897,28 +16702,11 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Answer:</p>
-
+<p>Answer: It takes in the csv file, drops the columns which are specified, changed the date time to multiple cols based on the /,</p>
+<h1 id="created-new-cols-in-another-df-based-off-of-day-month-and-year,-then-merged-this-back-with-the-original-df-and-dropped-the-original-date-col-and-year">created new cols in another df based off of day month and year, then merged this back with the original df and dropped the original date col and year<a class="anchor-link" href="#created-new-cols-in-another-df-based-off-of-day-month-and-year,-then-merged-this-back-with-the-original-df-and-dropped-the-original-date-col-and-year">&#182;</a></h1>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># It takes in the csv file, drops the columns which are specified, changed the date time to multiple cols based on the /,</span>
-<span class="c1">#created new cols in another df based off of day month and year, then merged this back with the original df and dropped the original date col and year</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -17076,27 +16864,11 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Answer:</p>
+<p>Answer:I believe that this code changed the order in which the columns are presented, changes made it into chronological order appearing first</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#I believe that this code changed the order in which the columns are presented, changes made it into chronological order appearing first</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -17302,27 +17074,11 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Answer:</p>
+<p>Answer: I think this unstacked the species column which then formed the NO2, NOX, PM10, and PM2.5 cols</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#I think this unstacked the species column which then formed the NO2, NOX, PM10, and PM2.5 cols</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -17345,27 +17101,11 @@ f)  If you were to choose one counterpart for .melt() between .stack()/.unstack(
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Answer:</p>
+<p>Answer: I think that for .melt unstack would be the counterpart would be .unstack(), I don't really understand the differences between them all at this time.</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#I think that for .melt unstack would be the counterpart would be .unstack()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
